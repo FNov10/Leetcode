@@ -1,10 +1,7 @@
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
-        final = []
-        for index in range(n):
-            final.append(self.fizzMatch(index+1))
-        return final
-        
+        return [self.fizzMatch(index+1) for index in range(n)]
+                
     def fizzMatch(self, number: int) -> str:
         if all([number%3==0,number%5==0]):
             return "FizzBuzz"
