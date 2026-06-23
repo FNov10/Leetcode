@@ -6,14 +6,13 @@ class Solution:
         if s==t:
             return True
         i, j = 0, 0
-        final = ""
+        final = []
         while i<len(s) and j<len(t):
-            
             if s[i] == t[j]:
-                final+=t[j]
+                final.append(s[i])
                 i+=1
             j+=1
-        return final==s
+        return ''.join(final)==s
             
         
         
