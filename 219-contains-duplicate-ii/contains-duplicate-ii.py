@@ -4,7 +4,7 @@ class Solution:
         window = {nums[0]}
         L, R = 0, 1
         while R<len(nums):
-            if abs(R-L)>k:
+            while abs(R-L)>k:
                 window.remove(nums[L])
                 L+=1
             if nums[R] in window:
