@@ -11,7 +11,7 @@ class Solution:
             while L<R:
                 if nums[R] + nums[L] == target:
                     res.add((value,nums[L],nums[R]))
-                    L+=1
+                    R-=1
                 elif nums[R]+nums[L]< target:
                     L+=1
                 else:
