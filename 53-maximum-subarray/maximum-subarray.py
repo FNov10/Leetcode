@@ -3,8 +3,10 @@ class Solution:
         maxSum = float('-inf')
         currSum = 0
         for n in nums:
-            currSum = max(0, currSum)
-            currSum+=n
-            maxSum = max(maxSum, currSum)
+            if currSum<0:
+                currSum = 0
+            currSum += n
+            maxSum = max(currSum, maxSum)
+
         return maxSum
         
