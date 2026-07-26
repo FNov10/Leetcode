@@ -1,13 +1,12 @@
+from collections import Counter
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        window = len(s1)-1
-        L = 0
-        R = window
-        
-        while R<len(s2):
-            if sorted(s2[L:R+1]) == sorted(s1):
+        window = len(s1) -1
+        s1Counter = Counter(s1)
+        for index in range(len(s2) - window):
+            s2sub = Counter(s2[index:index+len(s1)])
+            if s1Counter == s2sub:
                 return True
-            L+=1
-            R= L + window
         return False
+
         
