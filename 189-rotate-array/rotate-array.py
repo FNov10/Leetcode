@@ -3,11 +3,17 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        numscopy = nums.copy()
-        for index, value in enumerate(numscopy):
-            newindex = index + k
-            while newindex >= len(nums):
-                newindex = newindex - len(nums)
-            if newindex <len(nums):
-                 nums[newindex] = value
+        if k == 0 :
+            return nums
+
+        copy = nums.copy()
+        for index, value in enumerate(copy):
+            if index + k < len(nums):
+                newindex = index+k
+                nums[newindex] = value
+            else:
+                newindex =  (index+k) - len(nums)
+                while not 0<=newindex<len(nums):
+                    newindex-=len(nums)
+                nums[newindex]=value
         
