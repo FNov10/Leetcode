@@ -13,7 +13,5 @@ class Solution:
                 nums[newindex] = value
             else:
                 newindex =  (index+k) - len(nums)
-                while not 0<=newindex<len(nums):
-                    newindex-=len(nums)
-                nums[newindex]=value
+                nums[newindex%len(nums)]=value
         
