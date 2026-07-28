@@ -2,19 +2,20 @@ class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows==1:
             return s
-        i = 0
+        matrix = [[] for row in range(numRows)]
+        rowindex = 0
         d = 1
-        sol = [[] for blah in range(numRows)]
-
-        for char in s:
-            sol[i].append(char)
-            if i ==0:
+        for letter in s:
+            matrix[rowindex].append(letter)
+            if rowindex == 0:
                 d = 1
-            elif i == numRows-1:
+            elif rowindex == len(matrix)-1:
                 d = -1
-            i+=d
+            rowindex +=d
         final = ""
-        for row in sol:
+        for row in matrix:
             final+=''.join(row)
         return final
+
+            
 
