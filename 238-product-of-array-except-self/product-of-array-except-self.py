@@ -1,23 +1,19 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        currL = 1
-        L = []
-     
-        for n in nums:
-            L.append(currL)
-            currL = n*currL
-        reverse = nums[::-1]
-        currR = 1
-        R = []
-        for n in reverse:
-            R.append(currR)
-            currR = n * currR
-        R = R[::-1]
-        result = []
-        for i in range(len(nums)):
-            result.append(L[i]*R[i])
-        return result
+        prefixArray = self.prefixSum(nums)
+        postfixArray = self.prefixSum(nums[::-1])[::-1]
+        output = []
+        for index, num in enumerate(nums):
+            output.append(prefixArray[index] * postfixArray[index])
+        return output
         
+    def prefixSum(self, numss):
+        currPrefix = 1
+        final = []
+        for index, value in enumerate(numss):
+            final.append(currPrefix)
+            currPrefix*=value
+        return final
 
         
         
