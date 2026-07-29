@@ -1,26 +1,25 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
-        res = set()
-        for index, value in enumerate(nums):
-            if index>0 and value == nums[index-1]:
-                continue
+        final = set()
+        for index, num in enumerate(nums):
+            
             L = index+1
             R = len(nums)-1
-            target = 0 - value
-            while L<R:
-                if nums[R] + nums[L] == target:
-                    res.add((value,nums[L],nums[R]))
+            target = num*-1
+            while L<R and L<len(nums):
+                total = nums[L] + nums[R]
+                if total == target and total not in final:
+                    final.add((num,nums[R],nums[L]))
                     R-=1
-                elif nums[R]+nums[L]< target:
+                elif total < target:
                     L+=1
                 else:
                     R-=1
-        final = []
-        for tup in res:
-            final.append(list(tup))
-        return final
-
+        finalfinal = []
+        for hashset in final:
+            finalfinal.append(list(hashset))
+        return finalfinal
 
 
         
