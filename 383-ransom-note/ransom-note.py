@@ -1,10 +1,10 @@
 from collections import Counter
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        rc = Counter(ransomNote)
-        mc = Counter(magazine)
-        for index, value in rc.items():
-            if mc[index] < value:
+        counterRansom = Counter(ransomNote)
+        counterMagazine = Counter(magazine)
+
+        for letter, count in counterRansom.items():
+            if count>counterMagazine[letter]:
                 return False
         return True
-        
