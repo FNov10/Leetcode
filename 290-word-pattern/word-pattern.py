@@ -1,16 +1,17 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        hashmap = dict()
+        pattern = list(pattern)
         s = s.split()
-        if len(pattern) != len(s):
-            return False
-        for index in range(len(pattern)):
-            if pattern[index] not in hashmap:
-                if s[index] in hashmap.values():
+        if len(s)!=len(pattern): return False
+        hashmap = {}
+        for index, letter in enumerate(pattern):
+            if letter in hashmap:
+                if hashmap[letter] != s[index]:
                     return False
-                hashmap[pattern[index]] = s[index]
-            elif hashmap[pattern[index]] != s[index]:
+            elif s[index] in hashmap.values():
                 return False
+            else:
+                hashmap[letter] = s[index]
         return True
 
         
